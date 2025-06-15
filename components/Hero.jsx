@@ -8,7 +8,18 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
   const heroRef = useRef()
 
-  const roles = ["Full Stack Developer", "React Specialist", "UI/UX Designer", "Problem Solver"]
+const roles = [
+  "Full Stack Web Developer",
+  "MERN Stack Enthusiast",
+  "React.js Specialist",
+  "UI/UX Designer",
+  "Tech Problem Solver",
+  "Open Source Contributor",
+  // "LLM Integration Developer",
+  "AI Agent Workflow Builder",
+  "Generative AI Explorer"
+];
+
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
 
@@ -85,8 +96,8 @@ const Hero = () => {
               <span className="cursor">|</span>
             </h2>
             <p className="hero-description">
-              I craft digital experiences through clean code and innovative solutions. Passionate about building
-              scalable applications that make a difference.
+              I craft scalable, efficient, and user-friendly digital experiences. 
+              Passionate about blending functionality with aesthetics to build impactful solutions.
             </p>
             <div className="hero-buttons">
               <button className="btn btn-primary" onClick={scrollToProjects}>
@@ -109,40 +120,86 @@ const Hero = () => {
                   <span className="control minimize"></span>
                   <span className="control maximize"></span>
                 </div>
-                <span className="window-title">portfolio.js</span>
+                {/* <span className="window-title">portfolio.js</span> */}
               </div>
-              <div className="code-content">
-                <div className="code-line">
-                  <span className="line-number">1</span>
-                  <span className="code-text">
-                    <span className="keyword">const</span> <span className="variable">developer</span> = {"{"}
-                  </span>
-                </div>
-                <div className="code-line">
-                  <span className="line-number">2</span>
-                  <span className="code-text">
-                    &nbsp;&nbsp;<span className="property">name</span>: <span className="string">'Rishu Goyal'</span>,
-                  </span>
-                </div>
-                <div className="code-line">
-                  <span className="line-number">3</span>
-                  <span className="code-text">
-                    &nbsp;&nbsp;<span className="property">skills</span>: [<span className="string">'React'</span>,{" "}
-                    <span className="string">'Node.js'</span>],
-                  </span>
-                </div>
-                <div className="code-line">
-                  <span className="line-number">4</span>
-                  <span className="code-text">
-                    &nbsp;&nbsp;<span className="property">passion</span>:{" "}
-                    <span className="string">'Building amazing apps'</span>
-                  </span>
-                </div>
-                <div className="code-line">
-                  <span className="line-number">5</span>
-                  <span className="code-text">{"}"}</span>
-                </div>
-              </div>
+              <pre className="code-content" aria-label="Developer code snippet">
+                <code>
+                  {[
+                    {
+                      lineNumber: 1,
+                      code: (
+                        <>
+                          <span className="keyword">const</span>{" "}
+                          <span className="variable">developer</span> = {"{"}
+                        </>
+                      ),
+                    },
+                    {
+                      lineNumber: 2,
+                      code: (
+                        <>
+                          &nbsp;&nbsp;<span className="property">name</span>:{" "}
+                          <span className="string">"Rishu Goyal"</span>,
+                        </>
+                      ),
+                    },
+                    {
+                      lineNumber: 3,
+                      code: (
+                        <>
+                          &nbsp;&nbsp;<span className="property">skills</span>: [
+                          <span className="string">"React"</span>,{" "}
+                          <span className="string">"Node.js"</span>,{" "}
+                          <span className="string">"MongoDB"</span>],
+                        </>
+                      ),
+                    },
+                    {
+                      lineNumber: 4,
+                      code: (
+                        <>
+                          &nbsp;&nbsp;<span className="property">passion</span>:{" "}
+                          <span className="string">"Building amazing apps"</span>,
+                        </>
+                      ),
+                    },
+                    {
+                      lineNumber: 5,
+                      code: (
+                        <>
+                          &nbsp;&nbsp;<span className="property">LinkedIn</span>:{" "}
+                          <span className="string">"rishugoyal0405"</span>,
+                        </>
+                      ),
+                    },
+                    {
+                      lineNumber: 6,
+                      code: (
+                        <>
+                          &nbsp;&nbsp;<span className="property">Github</span>:{" "}
+                          <span className="string">"rishugoyal805"</span>,
+                        </>
+                      ),
+                    },
+                    {
+                      lineNumber: 7,
+                      code: <>{"}"}</>,
+                    },
+                  ].map(({ lineNumber, code }, index) => (
+                    <div
+                      className="code-line"
+                      key={index}
+                      style={{
+                        animationDelay: `${0.2 + index * 0.15}s`,
+                        animationFillMode: "forwards",
+                      }}
+                    >
+                      <span className="line-number">{lineNumber}</span>
+                      <span className="code-text">{code}</span>
+                    </div>
+                  ))}
+                </code>
+              </pre>
             </div>
           </div>
         </div>
