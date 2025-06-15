@@ -1,3 +1,9 @@
+:root {
+  --accent-color: #00f0ff;
+  --gradient-primary: linear-gradient(135deg, #00f0ff, #5b5bff);
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .about {
   background: var(--bg-secondary);
 }
@@ -24,6 +30,64 @@
 
 .about-description {
   margin-bottom: 2rem;
+}
+.about-info-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  /* overflow-x: auto; */
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: var(--bg-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 250px; /* ensures card size stays consistent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+  /* border-color: var(--accent-color, #00f0ff); */
+}
+
+.info-icon {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 0.6rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.info-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.info-card p {
+  margin: 0.2rem 0 0;
+  font-weight: 500;
+}
+
+/* Optional: Hide scrollbar for WebKit browsers */
+.about-info-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .lead {
@@ -55,6 +119,7 @@
 .highlight-item:hover {
   transform: translateY(-8px) translateX(5px);
   box-shadow: var(--shadow-medium);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
 }
 
 .highlight-icon {
