@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { VscCode } from "react-icons/vsc";
 import "../styles/Skills.css"
 
 const Skills = () => {
@@ -14,7 +15,7 @@ const Skills = () => {
       skills: [
         { name: "React", level: 90, icon: "⚛️" },
         { name: "JavaScript", level: 85, icon: "🟨" },
-        { name: "TypeScript", level: 80, icon: "🔷" },
+        // { name: "TypeScript", level: 80, icon: "🔷" },
         { name: "HTML/CSS", level: 95, icon: "🌐" },
         { name: "Next.js", level: 85, icon: "▲" },
       ],
@@ -26,19 +27,20 @@ const Skills = () => {
         { name: "Node.js", level: 80, icon: "🟢" },
         { name: "Express", level: 75, icon: "🚀" },
         { name: "MongoDB", level: 70, icon: "🍃" },
-        { name: "PostgreSQL", level: 65, icon: "🐘" },
+        // { name: "PostgreSQL", level: 65, icon: "🐘" },
         { name: "REST APIs", level: 85, icon: "🔗" },
       ],
     },
     {
-      title: "Tools & DevOps",
+      title: "Tools",
       icon: "🛠️",
       skills: [
         { name: "Git", level: 90, icon: "📝" },
         { name: "Docker", level: 60, icon: "🐳" },
-        { name: "AWS", level: 55, icon: "☁️" },
+        // { name: "AWS", level: 55, icon: "☁️" },
         { name: "Figma", level: 75, icon: "🎯" },
-        { name: "Webpack", level: 70, icon: "📦" },
+        { name: "VS Code", level: 80, icon: <VscCode /> },
+        // { name: "Webpack", level: 70, icon: "📦" },
       ],
     },
   ]
@@ -85,7 +87,7 @@ const Skills = () => {
                         <span className="skill-icon">{skill.icon}</span>
                         <span className="skill-name">{skill.name}</span>
                       </div>
-                      <span className="skill-percentage">{skill.level}%</span>
+                      {/* <span className="skill-percentage">{skill.level}%</span> */}
                     </div>
                     <div className="skill-bar">
                       <div
