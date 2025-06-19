@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -32,7 +36,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 20px;
+  max-width: 1200px;      /* ✅ Limit maximum width */
+  margin: 0 auto;         /* ✅ Center container */
+  width: 100%;            /* ✅ Prevent overflow */
+  box-sizing: border-box; /* ✅ Include padding inside width */
 }
+
 
 .logo {
   display: flex;
