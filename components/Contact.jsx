@@ -1,7 +1,12 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import emailjs from "@emailjs/browser";
 import "../styles/Contact.css"
+
+const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +14,8 @@ const Contact = () => {
     email: "",
     subject: "",
     message: "",
-  })
+    website: "", // <-- Honeypot field
+  });
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const contactRef = useRef()
@@ -39,21 +45,39 @@ const Contact = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // Honeypot check
+    if (formData.website) {
+      alert("Spam detected. Submission blocked.");
+      setIsSubmitting(false);
+      return;
+    }
 
-    console.log("Form submitted:", formData)
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-    setIsSubmitting(false)
-  }
+    try {
+      const response = await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      console.log("Email sent successfully", response);
+      alert("Message Sent Successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "", website: "" });
+    } catch (error) {
+      console.error("Error sending email", error);
+      alert("Failed to send message.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="contact" ref={contactRef}>
@@ -77,8 +101,8 @@ const Contact = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Email</h4>
-                  <p>rishugoyal805@gmail.com</p>
-                  <a href="mailto:rishugoyal805@gmail.com" className="contact-link">
+                  <p>rishugoyal6800@gmail.com</p>
+                  <a href="mailto:rishugoyal6800@gmail.com" className="contact-link">
                     Send Email
                   </a>
                 </div>
@@ -195,6 +219,16 @@ const Contact = () => {
                 placeholder="Tell me about your project..."
               ></textarea>
             </div>
+
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              autoComplete="off"
+              tabIndex="-1"
+              style={{ display: "none" }}
+            />
 
             <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
               {isSubmitting ? (
