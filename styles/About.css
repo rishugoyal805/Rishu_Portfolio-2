@@ -215,7 +215,7 @@
 @media (max-width: 1207px){
   .about-info-grid {
     display: grid;
-    grid-template-column: repeat(1, 1fr);
+    grid-template-column: repeat(2, 1fr);
   }
 }
 
