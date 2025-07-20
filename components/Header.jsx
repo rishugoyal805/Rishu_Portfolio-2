@@ -37,29 +37,29 @@ const Header = () => {
         <nav className={`nav ${isMobileMenuOpen ? "nav-open" : ""}`}>
           <ul>
             <li>
-              <button onClick={() => scrollToSection("home")} aria-label="Go to Home section">
+              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} aria-label="Go to Home section">
                 Home
-              </button>
+              </a>
             </li>
             <li>
-              <button onClick={() => scrollToSection("about")} aria-label="Go to About section">
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} aria-label="Go to About section">
                 About
-              </button>
+              </a>
             </li>
             <li>
-              <button onClick={() => scrollToSection("skills")} aria-label="Go to Skills section">
+              <a href="#skills" onClick={() => setIsMobileMenuOpen(false)} aria-label="Go to Skills section">
                 Skills
-              </button>
+              </a>
             </li>
             <li>
-              <button onClick={() => scrollToSection("projects")} aria-label="Go to Projects section">
-                Projects
-              </button>
+              <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} aria-label="Go to Project section">
+                Project
+              </a>
             </li>
             <li>
-              <button onClick={() => scrollToSection("contact")} aria-label="Go to Contact section">
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} aria-label="Go to Contact section">
                 Contact
-              </button>
+              </a>
             </li>
           </ul>
         </nav>
