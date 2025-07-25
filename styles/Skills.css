@@ -1,4 +1,179 @@
 .skills {
+  padding: 4rem 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.skills-section {
+  padding: 5rem 1rem;
+}
+
+.skills-container {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skills-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.skills-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.skills-description {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease;
+  transform: translateY(2rem);
+  opacity: 0;
+  overflow: hidden;
+}
+
+.skill-card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2));
+  border-radius: 1.5rem;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.light-effect {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  transform: scale(1);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.light-effect.top-right {
+  top: 1rem;
+  right: 1rem;
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
+}
+
+.light-effect.bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+}
+
+.skill-card:hover .light-effect {
+  transform: scale(1.5);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.card-icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .card-icon {
+  transform: scale(1.15);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.card-skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(to right, #f9fafb, #f3f4f6);
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.skill-pill:hover {
+  background: linear-gradient(to right, #e0f2fe, #ede9fe);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pill-icon {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.skill-pill:hover .pill-icon {
+  transform: scale(1.2);
+}
+
+/* .skills {
   background: var(--bg-primary);
 }
 
@@ -10,10 +185,10 @@
 
 .skills-grid.animate .skill-category {
   animation: fadeInUp 0.8s ease-out;
-}
+} */
 
 /* Enhanced skill category hover effects */
-.skill-category {
+/* .skill-category {
   background: var(--bg-secondary);
   padding: 2rem;
   border-radius: 24px;
@@ -83,10 +258,10 @@
   display: flex;
   flex-direction: column;
   gap: 1.01rem;
-}
+} */
 
 /* Enhanced skill items */
-.skill-item {
+/* .skill-item {
   background: var(--bg-primary);
   padding: 1.5rem;
   border-radius: 16px;
@@ -133,10 +308,10 @@
   background: var(--bg-tertiary);
   border-radius: 4px;
   overflow: hidden;
-}
+} */
 
 /* Enhanced skill progress animation */
-.skill-progress {
+/* .skill-progress {
   height: 100%;
   background: var(--gradient-primary);
   border-radius: 4px;
@@ -177,4 +352,4 @@
   .skill-item {
     padding: 1rem;
   }
-}
+} */
